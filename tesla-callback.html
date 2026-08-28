@@ -1,0 +1,16 @@
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>Tesla auth</title></head>
+<body>
+<p id="msg">Tesla auth captured. You can close this.</p>
+<script>
+const q = new URLSearchParams(location.search);
+document.body.dataset.code = q.get("code") || "";
+document.body.dataset.state = q.get("state") || "";
+document.body.dataset.error = q.get("error") || "";
+if (q.get("error")) {
+  document.getElementById("msg").textContent = "Tesla auth error: " + q.get("error");
+}
+</script>
+</body>
+</html>
